@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import urllib2, json
 import os, errno
+import sys 
 
 # Function to check whether the path exists or not
 def make_sure_path_exists(path):
@@ -11,15 +12,15 @@ def make_sure_path_exists(path):
             raise
 
 # List of TechCrunch URLs for crawling 
-URLs=[
-"http://techcrunch.com/2014/03/02/mashable-14-m-series-a/",
-"http://techcrunch.com/2014/03/20/google-wants-everyone-to-stop-hating-on-glass/"
+URLs=[sys.argv[1]
+#"http://techcrunch.com/2012/01/09/61-percent-disqus-comments-pseudonyms/"#,
+#"http://techcrunch.com/2014/03/20/google-wants-everyone-to-stop-hating-on-glass/"
 ]
 
 # List of TechCrunch URLs for getting the comments using Facebook Graph API
 graphURLs=[
-"https://graph.facebook.com/comments/?limit=500&ids=http://techcrunch.com/2014/03/02/mashable-14-m-series-a/",
-"https://graph.facebook.com/comments/?limit=500&ids=http://techcrunch.com/2014/03/20/google-wants-everyone-to-stop-hating-on-glass/"
+"https://graph.facebook.com/comments/?limit=500&ids="+sys.argv[1]#http://techcrunch.com/2012/01/09/61-percent-disqus-comments-pseudonyms/"#,
+#"https://graph.facebook.com/comments/?limit=500&ids=http://techcrunch.com/2014/03/20/google-wants-everyone-to-stop-hating-on-glass/"
 ]
 
 i = len(URLs)
@@ -45,16 +46,10 @@ while j < i:
 	commentsFile = open(netCommentsPath, 'w')
 
 	blogFile.write('{\n\t"blog" : {\n')
-	#commentsFile.write('{\n\t"comments" : [\n')
 	
 	responseComments = urllib2.urlopen(graphURLs[j])
 	dataComments = json.loads(responseComments.read())
 	commentsFile.write((json.dumps(dataComments, indent = 2)))
-
-	# if j == i-1:
-	# 	commentsFile.write('\n\t]\n}')
-	# else:
-	# 	commentsFile.write(',\n')
 	
 	responseBlog = urllib2.urlopen(URLs[j])
 	html = responseBlog.read()
@@ -67,7 +62,7 @@ while j < i:
 		  if links.get('class')[0]=="title-left":
 		  	dateAuthor = links.get_text()
 			dateAuthor = dateAuthor.strip().split(' ')			
-			#print dateAuthor
+			
 			indexBy = dateAuthor.index("by")
 			k = 1
 			blogDateParts = ""
@@ -96,11 +91,6 @@ while j < i:
 				blogBody += blogBodyPart.encode('utf-8' + '\n')
 	blogFile.write('\t\t\t"body" : "' + blogBody + '"\n')			
 	blogFile.write('\t}\n}')
-
-	# if j == i-1:
-	# 	blogFile.write('\t\t}\n')
-	# else:
-	# 	blogFile.write('\t\t},\n')
 
 	blogFile.close()
 	commentsFile.close()
@@ -132,10 +122,19 @@ while j < i:
 	for k in range(numberOfComments):
 		commentsIDs.append(commentsJSON[URLs[j]]["comments"]["data"][k]["id"].encode('ascii'))
 
+	netReplyPath = os.path.join(netDirPath, path)
+	if os.path.exists(netReplyPath):
+		for the_file in os.listdir(netReplyPath):
+		    file_path = os.path.join(netReplyPath, the_file)
+		    try:
+		        if os.path.isfile(file_path):
+		            os.unlink(file_path)
+		    except Exception, e:
+		        print e
+	make_sure_path_exists(netReplyPath)
+
 	for commentsID in commentsIDs:
-		# Creating a replies file for each comment with name as commentID
-		netReplyPath = os.path.join(netDirPath, path)
-		make_sure_path_exists(netReplyPath)
+		# Creating a replies file for each comment with name as commentID		
 		repliesFileName = 'replyFor-' + commentsID + '.json'
 		netPathRepliesFile = os.path.join(netReplyPath, repliesFileName)
 
