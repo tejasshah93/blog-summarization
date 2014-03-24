@@ -1,7 +1,7 @@
-Comments Oriented Blog Summarization
+Comments Oriented Blog Summarization:
+A summarization technique for blogs like TechCrunch using its comments
 
 To run, 
-
 $ run.sh <URL-of-a-blog>
 
 The argument passed as an URL can be from TechCrunch (current implementation)
