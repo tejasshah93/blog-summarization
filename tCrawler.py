@@ -19,7 +19,7 @@ URLs=[sys.argv[1]
 
 # List of TechCrunch URLs for getting the comments using Facebook Graph API
 graphURLs=[
-"https://graph.facebook.com/comments/?limit=500&ids="+sys.argv[1]#http://techcrunch.com/2012/01/09/61-percent-disqus-comments-pseudonyms/"#,
+"https://graph.facebook.com/comments/?limit=500&ids="+sys.argv[1]#	http://techcrunch.com/2012/01/09/61-percent-disqus-comments-pseudonyms/"#,
 #"https://graph.facebook.com/comments/?limit=500&ids=http://techcrunch.com/2014/03/20/google-wants-everyone-to-stop-hating-on-glass/"
 ]
 
@@ -106,6 +106,7 @@ print "\nOnto the replies part now..."
 i=len(URLs)
 j=0
 path = "replies"
+userSubscribers = "userSubscribers"
 
 while j < i:
 	print "Getting replies for all the comments in Blog " + str(j + 1) + " " + URLs[j]
@@ -118,9 +119,14 @@ while j < i:
 	# In "replies" folder, a separate folder for each blog will be created
 	# which will contain replies of its respective comments with name as commentID
 	commentsIDs = []
+	userIDs = []
 	numberOfComments = len(commentsJSON[URLs[j]]["comments"]["data"])
 	for k in range(numberOfComments):
 		commentsIDs.append(commentsJSON[URLs[j]]["comments"]["data"][k]["id"].encode('ascii'))
+		if "from" in commentsJSON[URLs[j]]["comments"]["data"][k]:
+			print commentsJSON[URLs[j]]["comments"]["data"][k]["from"]["id"].encode('ascii')
+			userIDs.append(commentsJSON[URLs[j]]["comments"]["data"][k]["from"]["id"].encode('ascii'))
+		
 
 	netReplyPath = os.path.join(netDirPath, path)
 	if os.path.exists(netReplyPath):
@@ -133,6 +139,17 @@ while j < i:
 		        print e
 	make_sure_path_exists(netReplyPath)
 
+	netUsersPath = os.path.join(netDirPath, userSubscribers)
+	if os.path.exists(netUsersPath):
+		for the_file in os.listdir(netUsersPath):
+		    file_path = os.path.join(netUsersPath, the_file)
+		    try:
+		        if os.path.isfile(file_path):
+		            os.unlink(file_path)
+		    except Exception, e:
+		        print e    
+	make_sure_path_exists(netUsersPath)
+	
 	for commentsID in commentsIDs:
 		# Creating a replies file for each comment with name as commentID		
 		repliesFileName = 'replyFor-' + commentsID + '.json'
@@ -148,7 +165,42 @@ while j < i:
 		repliesFile.write((json.dumps(dataReplies, indent = 2)))
 		repliesFile.close()
 
+		repliesFile = open(netPathRepliesFile,'r')
+		repliesJSON = json.load(repliesFile)
+		numberOfReplies = len(repliesJSON["data"])
+		for k in range(numberOfReplies):
+			if "from" in repliesJSON["data"][k]:
+				print repliesJSON["data"][k]["from"]["id"].encode('ascii')
+				userIDs.append(repliesJSON["data"][k]["from"]["id"].encode('ascii'))
+		repliesFile.close()
+
+	print "Getting subscribers for all the users in Blog " + str(j + 1) + " " + URLs[j]
+	for userID in userIDs:
+		# Creating a replies file for each comment with name as commentID		
+		userFileName = userID + '.json'
+		netUserSubscribersFile = os.path.join(netUsersPath, userFileName)
+
+		if os.path.exists(netUserSubscribersFile):
+			os.remove(netUserSubscribersFile)
+
+		userSubscribersFile = open((netUserSubscribersFile), 'w')
+		#print "fetching subscribers for user " + userID
+		userSubscribersURL = "https://graph.facebook.com/" + userID +  "/subscribers?access_token=CAAFVAqeZB1W0BABISv5BR42Hgj9YXBbJnh6kCEb5gJrqyKeIySp4oeILQ5bf32uBgHov2nysbzNlHt9gUBN8Xh2O1HDziV7jBxBDJPFRhZBeEi8w7aoX51HAUjWQi76d70AZAHzRwUsdTMYXI1lOuPmaKZBzXfOuPnZCUbLWyYq10joHeKivVvMyILusqMFIZD"
+
+		requestSubscribers = urllib2.Request(userSubscribersURL)
+		try:
+		    responseSubscribers = urllib2.urlopen(requestSubscribers)
+		    #print responseSubscribers
+		    dataSubscribers = json.loads(responseSubscribers.read())
+		    userSubscribersFile.write((json.dumps(dataSubscribers, indent = 2)))
+
+		except urllib2.URLError, e:
+		    if e:
+		        #print "404"
+		        userSubscribersFile.write('{\n\t"data": [],\n\t"summary": {\n\t\t "total_count": 0\n\t }\n}')
+		userSubscribersFile.close()
+
 	commentsFile.close()
 	j = j + 1
 
-print "Done! Check the 'replies' folder"
+print "Done! Check the 'replies' and 'userSubscribers' folder"
