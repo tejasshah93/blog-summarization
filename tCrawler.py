@@ -185,7 +185,7 @@ while j < i:
 
 		userSubscribersFile = open((netUserSubscribersFile), 'w')
 		#print "fetching subscribers for user " + userID
-		userSubscribersURL = "https://graph.facebook.com/" + userID +  "/subscribers?access_token=CAAFVAqeZB1W0BABISv5BR42Hgj9YXBbJnh6kCEb5gJrqyKeIySp4oeILQ5bf32uBgHov2nysbzNlHt9gUBN8Xh2O1HDziV7jBxBDJPFRhZBeEi8w7aoX51HAUjWQi76d70AZAHzRwUsdTMYXI1lOuPmaKZBzXfOuPnZCUbLWyYq10joHeKivVvMyILusqMFIZD"
+		userSubscribersURL = "https://graph.facebook.com/" + userID +  "/subscribers?access_token=CAAIq7L6i2AABALWkTAzc8FBdb99ZCf41airxD65xVTKts2wxpwYow81vYDMO3npWRbfo2fdJJisrWJ6NHLMc4eqhk8j2DUAmZAnJhClC7dwb5jwzWkvntZBonFsvTWc9YMmFY8zaNieZCrsAwlcX9DcNSjK5eeoXUZBr0OwTZBgMPFzQH2I6Hujxs8N2oKYw4ZD"
 
 		requestSubscribers = urllib2.Request(userSubscribersURL)
 		try:
