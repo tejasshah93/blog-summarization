@@ -124,7 +124,7 @@ while j < i:
 	for k in range(numberOfComments):
 		commentsIDs.append(commentsJSON[URLs[j]]["comments"]["data"][k]["id"].encode('ascii'))
 		if "from" in commentsJSON[URLs[j]]["comments"]["data"][k]:
-			print commentsJSON[URLs[j]]["comments"]["data"][k]["from"]["id"].encode('ascii')
+			#print commentsJSON[URLs[j]]["comments"]["data"][k]["from"]["id"].encode('ascii')
 			userIDs.append(commentsJSON[URLs[j]]["comments"]["data"][k]["from"]["id"].encode('ascii'))
 		
 
@@ -170,7 +170,7 @@ while j < i:
 		numberOfReplies = len(repliesJSON["data"])
 		for k in range(numberOfReplies):
 			if "from" in repliesJSON["data"][k]:
-				print repliesJSON["data"][k]["from"]["id"].encode('ascii')
+				#print repliesJSON["data"][k]["from"]["id"].encode('ascii')
 				userIDs.append(repliesJSON["data"][k]["from"]["id"].encode('ascii'))
 		repliesFile.close()
 
