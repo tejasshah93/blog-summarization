@@ -7,8 +7,10 @@ public final  class Constants {
 	public static final String NAME="name";
 	public static final String LIKECOUNT = "like_count";
 	public static final String MESSAGE = "message";
-	
-	
+	public static final String NN ="NN";
+	public static final String NNS ="NNS";
+	public static final String NNP ="NNP";
+	public static final String NNPS ="NNPS";
 	
 } 
  

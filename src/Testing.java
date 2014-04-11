@@ -6,8 +6,15 @@ import java.util.TreeMap;
 public class Testing {
 
     public static void main(String[] args) {
+    	
+    	/*for(String a : Tokenizer.tokenize("")){
+    		
+    		System.out.println(a);
+    		
+    	}
+    	*/
 
-        HashMap<String,Double> map = new HashMap<String,Double>();
+       /* HashMap<String,Double> map = new HashMap<String,Double>();
         ValueComparator bvc =  new ValueComparator(map);
         TreeMap<String,Double> sorted_map = new TreeMap<String,Double>(bvc);
 
@@ -20,7 +27,7 @@ public class Testing {
 
         sorted_map.putAll(map);
 
-        System.out.println("results: "+sorted_map);
+        System.out.println("results: "+sorted_map);*/
     }
 }
 

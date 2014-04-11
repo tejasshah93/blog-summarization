@@ -1,6 +1,9 @@
 
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -14,8 +17,17 @@ import java.util.TreeMap;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
+
+
+import edu.stanford.nlp.ling.Sentence;
+import edu.stanford.nlp.ling.TaggedWord;
+import edu.stanford.nlp.ling.HasWord;
+import edu.stanford.nlp.tagger.maxent.MaxentTagger;
+
 
 public class XMLParser {
 
@@ -25,11 +37,14 @@ public class XMLParser {
 	Map<Long, User> userMap;
 	public Set<Long> userIdList;
 	static List<Cluster> allClusterList = new ArrayList<Cluster>(); 
+	//List<List<HasWord>> sentences;
+	Map<String, Integer> Sentence_Weight = new HashMap<String, Integer>();
 
 	public XMLParser() {
 		termMapGlobal = new HashMap<String, Term>();
 		allComments = new HashMap<String, Comment>();
 		userMap = new HashMap<Long, User>();
+		
 	}
 
 	private static void printHashMap(Map<String, Term> indexMap) {
@@ -171,6 +186,10 @@ public class XMLParser {
 				
 				}	
 				
+				// Count the number of the named entities in the comment 
+				weight += commentObj.countOfNamedEntites;
+					
+				
 				//System.out.println("cluster Id -->"+commentObj.clusterId);
 				if(commentObj.clusterId!=null){
 				//	System.out.println("i am here -------------------");
@@ -184,35 +203,38 @@ public class XMLParser {
 		}
 		
 		
-		sortMap ();
+		//sortMap ();
 	}
 	
     private class TermComparator implements Comparator<String>{
 		@Override
 		public int compare(String arg0, String arg1) 
 		{
-			Term t1 =  termMapGlobal.get(arg0);
-			Term t2 = termMapGlobal.get(arg1);
-			int i = t2.weight.compareTo(t1.weight);
+			Integer t1 =  Sentence_Weight.get(arg0);
+			Integer t2 = Sentence_Weight.get(arg1);
+			int i = t2.compareTo(t1);
 			return i==0 ? 1:i;
 		}
 	}
 
 	
-public void sortMap (){
+public int sortMap (){
+	
+		int Threshold = 1000000000;
 	    TermComparator termComparator = new TermComparator();
-		TreeMap<String, Term> sortedByValues = new TreeMap<String, Term>(termComparator);
-		for (Map.Entry<String, Term> entry : termMapGlobal.entrySet()){
+		TreeMap<String, Integer> sortedByValues = new TreeMap<String, Integer>(termComparator);
+		for (Map.Entry<String,Integer > entry : Sentence_Weight.entrySet()){
 			sortedByValues.put(entry.getKey(),entry.getValue());
 		}
-	   
-		System.out.println("Terms and their weights : ");
-		for (Map.Entry<String, Term> entry : sortedByValues.entrySet()){
-			
-			System.out.println(entry.getKey() +" - "+entry.getValue().weight);
-			
+	    int c=0;
+		//System.out.println("Sentences and their weights : ");
+		for (Map.Entry<String, Integer> entry : sortedByValues.entrySet()){
+			c++;
+			//System.out.println(entry.getKey() +" - "+entry.getValue());
+			if(c==11)
+				Threshold=entry.getValue();
 		}
-		
+		return Threshold;
 	}
 
 	private void decodeComment(JsonElement comment) {
@@ -264,7 +286,8 @@ public void sortMap (){
 
 			Tokenizer.tokenize(message, termMapGlobal, commentObj);
 
-			// TODO: Clustering use the commentObj.termsMap
+		   // Count the number of named entity in the comment 
+			commentObj.countOfNamedEntites = Tagger.countNamedEntity(message);
 
 			allComments.put(commentObj.commentId, commentObj);
 			//System.out.println("term map---------------------");
@@ -340,7 +363,41 @@ public void sortMap (){
 		
 
 	}
+	private void AddWeightToSentence() throws JsonIOException, JsonSyntaxException, IOException
+	{
+		JsonObject jsonObjectBlogLevel = parser.parse(new FileReader("dataset/Blog 1/blogDataset.json")).getAsJsonObject();
+		String body = jsonObjectBlogLevel.get("blog").getAsJsonObject().get("body").getAsString();
+		//System.out.println(body);
+		String[] sentences = body.split("\\.");
+		for(int i=0;i<sentences.length;i++)
+		{
+		//	System.out.println(sentences[i]);
+			List<String> words = Tokenizer.tokenize(sentences[i]);
+			//for(int j=0;j<words.size();j++)
+				//System.out.print(words.get(j) + " ");
+			//System.out.println();
+			int sum =0;
+			for(int j=0;j<words.size();j++)
+			{
+				if(termMapGlobal.containsKey(words.get(j)))
+					sum += 	termMapGlobal.get(words.get(j)).weight;
+			}
+			Sentence_Weight.put(sentences[i], new Integer(sum/sentences[i].length()));
+		}
+		int Threshold  = sortMap();
+		BufferedWriter writer = null;
+		
+	    writer = new BufferedWriter( new FileWriter("Summary"));
+	    for(int i=0;i<sentences.length;i++)
+	    {
+			//System.out.println(sentences[i] + "\n **** END ***** \n");
+	    	if(Sentence_Weight.get(sentences[i])>=Threshold)
+	    		writer.write(sentences[i]+".");
+	    }
 	
+	    writer.close();
+		
+	}
 	private void CreateCluster()
 	{	
 		/* Initialize first cluster */
@@ -502,7 +559,7 @@ public void sortMap (){
 		return c;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws JsonIOException, JsonSyntaxException, IOException {
 		XMLParser xmlParser = new XMLParser();
 		xmlParser.parseJSONFile();
 	//	System.out.println("global map---------------------");
@@ -510,6 +567,7 @@ public void sortMap (){
 		//System.out.println("Total no of words in all comments: " + xmlParser.termMapGlobal.size());
 		//System.out.println("Total no of all comments: " + xmlParser.allComments.size());
 		xmlParser.CreateCluster();
+		xmlParser.AddWeightToSentence();
 		
 		//printCluster();
 	}

@@ -7,6 +7,7 @@ public class Term {
 	public Set<String> commentIdList;
 	public Integer weight;
 	public Integer idf;
+
 	
 	public Term (String commentId){
 		this.commentIdList = new HashSet<String>();

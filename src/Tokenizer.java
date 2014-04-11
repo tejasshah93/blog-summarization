@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -41,22 +42,26 @@ public class Tokenizer {
 				if (!token.trim().equals("") && !stopWords.contains(token)) {
 					token = stem.stem(token);
 
-					// add the term to global term list
-					termObj = termGlobalMap.get(token);
-					if (termObj != null) {
-						termObj.commentIdList.add(commentID);
-					} else {
-						termGlobalMap.put(token, new Term(commentID));
-					}
+					// add the token if its length is greater than 1
+					
+					if(token.length()>1){
+						// add the term to global term list
+						termObj = termGlobalMap.get(token);
+						if (termObj != null) {
+							termObj.commentIdList.add(commentID);
+						} else {
+							termGlobalMap.put(token, new Term(commentID));
+						}
+	
+						// update the frequency of the term in the map
+						frequency = termsMap.get(token);
+						if (frequency != null) {
+							termsMap.put(token, ++frequency);
+						} else {
+							termsMap.put(token, new Integer(1));
+						}
 
-					// update the frequency of the term in the map
-					frequency = termsMap.get(token);
-					if (frequency != null) {
-						termsMap.put(token, ++frequency);
-					} else {
-						termsMap.put(token, new Integer(1));
 					}
-
 				}
 			}
 
@@ -64,6 +69,33 @@ public class Tokenizer {
 
 		}
 
+	}
+	
+	public static List<String> tokenize(String sentence){
+	
+
+		
+		ArrayList<String> wordsList = null;
+		if(sentence==null || sentence.trim()==""){
+			return null;
+			
+		}
+		
+		String[] words = sentence.split(" ");
+		wordsList = new ArrayList<String>();
+		
+		for(String word : words){
+			
+					if (!word.trim().equals("") && !stopWords.contains(word)) {
+						word = stem.stem(word);
+						if(word.length()>1){
+							wordsList.add(word);
+						}
+						
+					}
+		}
+		
+		return wordsList;
 	}
 
 }

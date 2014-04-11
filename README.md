@@ -15,4 +15,4 @@ The argument passed as an URL can be from TechCrunch (current implementation)
 
 e.g. `$ ./run.sh http://techcrunch.com/2014/03/20/google-wants-everyone-to-stop-hating-on-glass/`
 
-Output would contain the status of crawler and word extracted from the comments and their corresponding weight.
+Output would contain the summary of the blog in the 'Summary' file for the given URL input

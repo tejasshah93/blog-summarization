@@ -13,6 +13,7 @@ public class Comment {
 	public Integer clusterId;
     public String commentId;
     public List<Reply> replies;
+    public Integer countOfNamedEntites;
     
     
     
