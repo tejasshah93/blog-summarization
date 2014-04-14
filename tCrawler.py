@@ -54,8 +54,8 @@ while j < i:
 	responseBlog = urllib2.urlopen(URLs[j])
 	html = responseBlog.read()
 	soup = BeautifulSoup(html)
-
-	blogFile.write('\n\t\t\t"url": "' + URLs[j] + '",\n' + '\t\t\t"title": "' + soup.h1.contents[0] + '",\n')
+        #blogFile.write(soup.h1.contents[0].encode('utf-8'))
+	blogFile.write('\n\t\t\t"url": "' + URLs[j] + '",\n' + '\t\t\t"title": "' + soup.h1.contents[0].encode('utf-8') + '",\n')
 
 	for links in soup.find_all('div'):
 		if links.get('class')!=None:
@@ -122,10 +122,10 @@ while j < i:
 	userIDs = []
 	numberOfComments = len(commentsJSON[URLs[j]]["comments"]["data"])
 	for k in range(numberOfComments):
-		commentsIDs.append(commentsJSON[URLs[j]]["comments"]["data"][k]["id"].encode('ascii'))
+		commentsIDs.append(commentsJSON[URLs[j]]["comments"]["data"][k]["id"].encode('ascii', 'ignore'))
 		if "from" in commentsJSON[URLs[j]]["comments"]["data"][k]:
-			#print commentsJSON[URLs[j]]["comments"]["data"][k]["from"]["id"].encode('ascii')
-			userIDs.append(commentsJSON[URLs[j]]["comments"]["data"][k]["from"]["id"].encode('ascii'))
+			#print commentsJSON[URLs[j]]["comments"]["data"][k]["from"]["id"].encode('ascii', 'ignore')
+			userIDs.append(commentsJSON[URLs[j]]["comments"]["data"][k]["from"]["id"].encode('ascii', 'ignore'))
 		
 
 	netReplyPath = os.path.join(netDirPath, path)
@@ -170,8 +170,8 @@ while j < i:
 		numberOfReplies = len(repliesJSON["data"])
 		for k in range(numberOfReplies):
 			if "from" in repliesJSON["data"][k]:
-				#print repliesJSON["data"][k]["from"]["id"].encode('ascii')
-				userIDs.append(repliesJSON["data"][k]["from"]["id"].encode('ascii'))
+				#print repliesJSON["data"][k]["from"]["id"].encode('ascii', 'ignore')
+				userIDs.append(repliesJSON["data"][k]["from"]["id"].encode('ascii', 'ignore'))
 		repliesFile.close()
 
 	print "Getting subscribers for all the users in Blog " + str(j + 1) + " " + URLs[j]
