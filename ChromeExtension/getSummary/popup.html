@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Twenty by HTML5 UP</title>
+        
+        <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.dropotron.min.js"></script>
+        <script src="js/skel.min.js"></script>
+        <script src="js/init.js"></script>
+        <noscript>
+            <link rel="stylesheet" href="css/skel.css" />
+            <link rel="stylesheet" href="css/style.css" />
+            <link rel="stylesheet" href="css/style-noscript.css" />
+        </noscript>
+        <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+        <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+        <style>
+            body { 
+                min-width: 420px; 
+                min-height: 490px;
+                overflow-x: hidden; 
+            }
+            input, textarea {    
+                /*padding:10px;*/
+                width:420px;
+                height: 300px;
+            }            
+            input#save { 
+                font-weight: bold; width: auto; 
+                height: auto;
+                /*margin-left: 50px;*/
+            }
+            input#download { 
+                font-weight: bold; width: auto; 
+                height: auto;
+                /*margin-left: 50px;*/
+            }
+            form {
+                display: inline-block;
+            }
+            /*button {
+                font-weight: bold; width: auto;    
+                padding:10px;
+                font-size:14px;                
+                border-radius:10px;
+                border:1px solid #556677;
+                display: inline-block;
+                width: 49px;
+                margin-left: 80px;       
+            }*/
+        </style>
+        <script src="popup.js"></script>
+    </head>
+    <body class="index loading">
+
+        <!-- Banner -->     
+            <section id="banner">
+                
+                <!--
+                    ".inner" is set up as an inline-block so it automatically expands
+                    in both directions to fit whatever's inside it. This means it won't
+                    automatically wrap lines, so be sure to use line breaks where
+                    appropriate (<br />).
+                -->
+                <div class="inner">
+                    
+                    <header>
+                        <label for="title"></label>
+                        <h2 id="title" name="title"></h2>
+                    </header>
+                    <p><label for="summary">Summary</label>
+                    <textarea id="summary" name="summary" ></textarea></p>
+                    <footer>
+                       <!--  <ul class="buttons">
+                            <li><a href="#main" class="button fit scrolly">Summarize</a></li>
+                            <li><a href="#main" class="button fit scrolly">Download</a></li>
+                        </ul> -->
+
+                        <form id="getSummary">
+                            <!-- <p><label for="title" hidden></label>
+                            <input type="text" id="title" name="title" size="50" value="" /></p> -->
+                            <p hidden><label for="url">Url</label>
+                            <input type="text" id="url" name="url" size="50" value="" /></p>
+                            <!-- <p><label for="summary">Summary</label><br />
+                            <textarea id="summary" name="summary" rows="6" cols="35"></textarea></p> -->
+                            <p hidden><label for="tags">Tags</label><br />
+                            <input type="text" id="tags" name="tags" size="50" value="" /></p>
+                            
+                                <input id="save" class="button fit scrolly" type="submit" value="Get Summary"/>
+                                <span id="status-display"></span>
+                            
+                                
+                        </form>
+                        <button id="download" class="button fit scrolly" disabled>
+                                <a href="http://web.iiit.ac.in/~tejas.shah/scripting/chromeExtension/majorProject/Summary.pdf" target="_blank">Download File</a>
+
+                        </button>
+                        <!-- <form id="getpdf" action="http://web.iiit.ac.in/~tejas.shah/scripting/chromeExtension/majorProject/Summary.pdf">
+                            <input id="download" class="button fit scrolly" type="submit" value="Download"/>
+                            <span id="status-display"></span>
+                        </form> -->
+                    </footer>
+                
+                </div>
+                
+            </section>
+    <script type="text/javascript">
+    summaryTextBox = document.getElementById("summary");
+    summaryTextBox.style.height = "";
+    summaryTextBox.style.height = Math.min(summaryTextBox.scrollHeight, 300) + "px";
+    </script>
+    </body>
+</html>
