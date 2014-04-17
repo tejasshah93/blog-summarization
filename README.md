@@ -21,9 +21,10 @@ Installation of the Chrome plugin :
 
 1. Open a new tab in the Google chrome.
 2. Type -  `chrome://extensions/` in the address bar.
-3. Drag and drop the extension CRX file to this window.
+3. Drag and drop the extension getSumary.CRX file from ChromeExtension folder to this window.
 
 For development of Chrome Plugin:
+
 1. Open a new tab in the Google chrome.
 2. Type -  `chrome://extensions/` in the address bar.
 3. Turn on developer mode
