@@ -22,3 +22,9 @@ Installation of the Chrome plugin :
 1. Open a new tab in the Google chrome.
 2. Type -  `chrome://extensions/` in the address bar.
 3. Drag and drop the extension CRX file to this window.
+
+For development of Chrome Plugin:
+1. Open a new tab in the Google chrome.
+2. Type -  `chrome://extensions/` in the address bar.
+3. Turn on developer mode
+4. Click on `Load unpacked extension` and browse for the ChromeExtension folder as in the repository
