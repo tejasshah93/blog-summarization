@@ -1,0 +1,22 @@
+{
+  "paging": {
+    "cursors": {
+      "after": "MQ==", 
+      "before": "MQ=="
+    }
+  }, 
+  "data": [
+    {
+      "from": {
+        "id": "1455175436", 
+        "name": "Jeremy Wagner-Kaiser"
+      }, 
+      "like_count": 1, 
+      "can_remove": false, 
+      "created_time": "2014-03-21T19:07:57+0000", 
+      "message": "The current price isn't intended to be a mass market price. Criticizing them for making it too expensive is premature - and like all premature things, messy and embarrassing.", 
+      "id": "276634702500349_860725", 
+      "user_likes": false
+    }
+  ]
+}

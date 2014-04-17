@@ -1,0 +1,22 @@
+{
+  "paging": {
+    "cursors": {
+      "after": "MQ==", 
+      "before": "MQ=="
+    }
+  }, 
+  "data": [
+    {
+      "from": {
+        "id": "100007927542651", 
+        "name": "Craig Smith"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-30T18:09:03+0000", 
+      "message": "Why would a company with the corporate motto \"Don't be evil\" join ALEC?\n\nALEC is about as evil as it gets!", 
+      "id": "276634702500349_872214", 
+      "user_likes": false
+    }
+  ]
+}

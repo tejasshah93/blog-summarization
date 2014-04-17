@@ -89,7 +89,7 @@ public class Tokenizer {
 					if (!word.trim().equals("") && !stopWords.contains(word)) {
 						word = stem.stem(word);
 						if(word.length()>1){
-							wordsList.add(word);
+							wordsList.add(word.trim());
 						}
 						
 					}

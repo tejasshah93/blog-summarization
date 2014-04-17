@@ -88,7 +88,8 @@ while j < i:
 	for links in soup.find_all('p'):
 			blogBodyPart = links.get_text().strip()
 			if len(blogBodyPart) > 0 and blogBodyPart != "More" and not "Latest headlines delivered to you daily" in blogBodyPart:
-				blogBody += blogBodyPart.encode('utf-8' + '\n')
+				#blogBody += blogBodyPart.encode('utf-8' + '\n')
+				blogBody += blogBodyPart.encode('ascii','ignore')
 	blogFile.write('\t\t\t"body" : "' + blogBody + '"\n')			
 	blogFile.write('\t}\n}')
 

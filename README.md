@@ -16,3 +16,9 @@ The argument passed as an URL can be from TechCrunch (current implementation)
 e.g. `$ ./run.sh http://techcrunch.com/2014/03/20/google-wants-everyone-to-stop-hating-on-glass/`
 
 Output would contain the summary of the blog in the 'Summary' file for the given URL input
+
+Installation of the Chrome plugin : 
+
+1. Open a new tab in the Google chrome.
+2. Type -  `chrome://extensions/` in the address bar.
+3. Drag and drop the extension CRX file to this window.

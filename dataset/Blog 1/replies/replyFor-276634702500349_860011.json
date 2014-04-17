@@ -1,0 +1,160 @@
+{
+  "paging": {
+    "cursors": {
+      "after": "MTE=", 
+      "before": "MQ=="
+    }
+  }, 
+  "data": [
+    {
+      "from": {
+        "id": "1148385343", 
+        "name": "Joey Yokaibelf"
+      }, 
+      "like_count": 6, 
+      "can_remove": false, 
+      "created_time": "2014-03-21T15:21:27+0000", 
+      "message": "Maybe people shouldn't have to \"mosey\" anywhere, and maybe you should \"mosey\" away with your damned camera.", 
+      "id": "276634702500349_860573", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1252441438", 
+        "name": "Bob Dana"
+      }, 
+      "like_count": 5, 
+      "can_remove": false, 
+      "created_time": "2014-03-21T16:23:33+0000", 
+      "message": "Absurd logic.  Maybe you should mosey over to Russia, where secret recordings are the de facto standard.  Here in the United States, one can be a modern technophile and still care about privacy.", 
+      "id": "276634702500349_860602", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "100000276648728", 
+        "name": "Brandon Isaacs"
+      }, 
+      "like_count": 3, 
+      "can_remove": false, 
+      "created_time": "2014-03-21T17:57:13+0000", 
+      "message": "Bob Dana Yeah you can care about privacy, but can also realize that doing so is generally pointless. Your logic is likely just as \"absurd\" as mine when your looking at the big picture. Why concern yourself with something you have very little to no control over? You've likely been photographed and caught on video multiple times throughout your life by strangers with phones, or cctv. Did you even notice? What can you do about it now? What can be done with the recording of you? Does it really even matter? At least glass is OBVIOUS sitting on someones face. There's a lot more important things to concern yourself with Bob, so maybe you should consider adjusting your priorities and concerns. I'm not trying to be a dick or anything here, I'm just saying that in this day and age, people being overly concerned about their \"privacy\" is a little old. Especially so when in situation like this. ", 
+      "id": "276634702500349_860671", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "705898713", 
+        "name": "Viktor Doundakov"
+      }, 
+      "like_count": 1, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T08:24:22+0000", 
+      "message": "Brandon Isaacs  you have no idea how naive your position on privacy is... I guess you don't mind drones with cameras circling above you either just because you don't have control over them... or wall penetrating heat/magnetism sensors in the hands of police... you are young, realistic, and hip not caring about stuff that works against you, eh!? ", 
+      "id": "276634702500349_861450", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "535807996", 
+        "name": "Prabhakar Kotla"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T17:21:29+0000", 
+      "message": "Brandon Isaacs Instead of attacking someone's personal views why don't you present your case on why its cool. Just an FYI i have been an early adopter with most of the products so don't even go there. ", 
+      "id": "276634702500349_861866", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "100000276648728", 
+        "name": "Brandon Isaacs"
+      }, 
+      "message_tags": [
+        {
+          "length": 15, 
+          "offset": 0, 
+          "type": "user", 
+          "id": "535807996", 
+          "name": "Prabhakar Kotla"
+        }
+      ], 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T18:38:28+0000", 
+      "message": "Prabhakar Kotla Every single piece of new and innovative technology is \"cool\" because it unlocks news doors and shows us new ways to do things, idea inspire more ideas. And I'm not hip-hop, and I'm certainly not naive, as a matter of fact I find that I'm quite the opposite. I'm not saying it's cool to be watched, but what do you really think you're going to do about it? And even an invasion of privacy has both positive and negative aspects I believe. What reason would any person have to feel violated from simply being observed? Are you doing something illegal and concerned you may be caught? Are you a degenerate who commonly participates in \"less-than-reputable\"  actions?  Then I really don't see a reason to be worried. The only reason to be worried about privacy is you harboring some sort of guilt or shame about something you do. That's all I can figure out anyway. Maybe my mind just works differently, but this is just one of those topics that seems completely asinine to me and has been persisting for far too long. People need to reassess their value system and start caring about things that actually matter. It's a waste of people time and energy to concern themselves with \"privacy\" especially since there's really not much we as individuals can do about it at this point. I'm sure Snowden would have a lot to say here, and I'm sure he'd disagree with a lot of what I'm saying but i'm also pretty sure he's not going to find google glass to be a problem of all things. See part of my problem here is that too often products like this crash because stupid people rip of them and convince their friends that it's a terrible product, start conspiracy theories and rumors. It wouldn't surprise me at all if within a year people were filing some sort of lawsuit against glass because it's giving them brain tumors or some incredibly unfounded and ridiculous notion, much similar to the one that glass is in any way an invasive. Especially when we have stuff like satellite imagery and thermal capabilities like Viktor there said. My initial intention was not attack anyone or their views, I'm simply saying these instances of unfounded fear and judgement of a product can do more damage than we think and if something truly revolutionary comes around I fear that there are even increasing chances that the people will be too uninformed, unfamiliar, and there-fore afraid of said revolutionary thing to accept it into our daily lives. That's all it takes to set us back a decade or more. ", 
+      "id": "276634702500349_861929", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "100007317721445", 
+        "name": "Steven Farley"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T19:16:06+0000", 
+      "message": "Brandon Isaacs  I see plenty of glass slivers being removed from you face,and eyes in the future. No, I'm not a fortune teller. Yes, you will deserve it.", 
+      "id": "276634702500349_861958", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "582506174", 
+        "name": "Richard Smart"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T20:03:41+0000", 
+      "message": "Brandon Isaacs I believe the thing MOST people who oppose Glass don't like about it is not so much the things they can think of that it could uncover (ie illegal activity, unethical activity, bigoted opinions, exposure of their own historical errors etc), its the things they can't think of that it 'might' lead to, beyond their control. Ultimately its change, its unknown and its quite rational to want to be cautious when faced with this kind of uncertainty. Its the classic 'brave new world'. Personally I don't have an issue with Glass - or at least I can't think of one material enough that brings me to the point of opposing it - but I do understand why perfectly normal, rational people do dislike it. To be honest we all fully expected there to be people who dislike it and indeed there are. However I believe it will become a reality and it will become one that people of future generations value in greater measure than they feel sufferance at the hands of but I believe the pace of change and the way its done is important. Battering them down, referring to them as 'stupid people' etc is not the way. The way is to just use it for positive, life-enhancing and considerate ways and let those facts speak for themselves. I realise you probably feel a bit cornered and frustrated with the objections people cite but keep up the good fight and good on ya.", 
+      "id": "276634702500349_862015", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1201833606", 
+        "name": "Robert Tubere"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-23T00:27:31+0000", 
+      "message": "Glass is not a revolutionary product. Putting together components that are already in use and having them on a frame is what Google wants to tout as a new product. Others may have mulled over the idea but shelf it for its privacy invasion issue. Will it creep you out if a glass wearer looks at your wife bending over, your little daughter climbing up a slide, things like that? There you are, a man, and another man is in your face capturing pictures of your wife and daughter, daring you to do anything about it. You will mosey away?", 
+      "id": "276634702500349_862182", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1015068584", 
+        "name": "Steve Clingan"
+      }, 
+      "like_count": 1, 
+      "can_remove": false, 
+      "created_time": "2014-03-23T01:37:39+0000", 
+      "message": "Bob Dana Seems you know little on who has access to these cameras & people are watching you all the time. Did you know that anyone can access thousands of public security cameras through the internet? We have cell phone apps that give you access to traffic cameras at intersections? Some even allow you to control them, pan right & left and zoom. Every bank, restaurant, retail store has cameras  watching you. The only true privacy you have is at home.  ", 
+      "id": "276634702500349_862231", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "100000276648728", 
+        "name": "Brandon Isaacs"
+      }, 
+      "message_tags": [
+        {
+          "length": 13, 
+          "offset": 0, 
+          "type": "user", 
+          "id": "1015068584", 
+          "name": "Steve Clingan"
+        }
+      ], 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-23T11:08:24+0000", 
+      "message": "Steve Clingan This is part of my standpoint. To be concerned about privacy at this point is simply futile. ", 
+      "id": "276634702500349_862983", 
+      "user_likes": false
+    }
+  ]
+}

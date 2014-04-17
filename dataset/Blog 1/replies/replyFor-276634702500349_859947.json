@@ -1,0 +1,106 @@
+{
+  "paging": {
+    "cursors": {
+      "after": "OA==", 
+      "before": "MQ=="
+    }
+  }, 
+  "data": [
+    {
+      "from": {
+        "id": "1252441438", 
+        "name": "Bob Dana"
+      }, 
+      "like_count": 4, 
+      "can_remove": false, 
+      "created_time": "2014-03-21T16:28:42+0000", 
+      "message": "That would do it, but honestly I would settle for an LED indicator when it's recording (that cannot be turned off) or a lens cap.  I'm not a luddite, I just want to know when I'm being recorded.  And yes, they can buy a secret lapel pin camera if they want to, but that's different; that makes them creepy by definition.  What Google Glass wearers are trying to do is to make surreptitious video recording a socially acceptable norm.  I will never sign up for that, and their attempt makes them evil.", 
+      "id": "276634702500349_860605", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1455175436", 
+        "name": "Jeremy Wagner-Kaiser"
+      }, 
+      "like_count": 1, 
+      "can_remove": false, 
+      "created_time": "2014-03-21T19:05:56+0000", 
+      "message": "Bob Dana So I trust you never go anywhere with those suggestive shiny black domes in the ceiling?", 
+      "id": "276634702500349_860721", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1455175436", 
+        "name": "Jeremy Wagner-Kaiser"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T04:36:50+0000", 
+      "message": "Sadly, removing the camera doesn't actually solve anything. It just gives people back their security blanket of denial.", 
+      "id": "276634702500349_861220", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1492627890", 
+        "name": "Emmanuel Pacamalan"
+      }, 
+      "like_count": 2, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T05:49:30+0000", 
+      "message": "Majority of the \"hate\" for Google glass comes from privacy concerns, people had fear of being recorded without them knowing. Removing the camera would make Google glass essentially a \"smartwatch\" attached to your head, people don't have issues with smartwatches.", 
+      "id": "276634702500349_861282", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1455175436", 
+        "name": "Jeremy Wagner-Kaiser"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T05:55:33+0000", 
+      "message": "Emmanuel Pacamalan PThey're already being recorded by all sorts of cameras, only some of which they can see. Why do people assume they're interesting enough to record, much less record secretively?\n\nWhy is this suddenly an issue now, given that the technology in question has been commercially available for years? Actively deployed for years? There's video cameras in stores, in coffee shops, on buildings and highways and so on. Hell, there are stores that sell pinhole cameras and the ACLU has an Android app for secretly recording audio.\n\nIt doesn't add up.\n\nI think that what's actually going on here is that people don't like having to face the reality that they've already consented to being recorded by random strangers, except now they can't live in denial anymore.", 
+      "id": "276634702500349_861288", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1492627890", 
+        "name": "Emmanuel Pacamalan"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T06:18:08+0000", 
+      "message": "I know but let's limit this argument to the minds of the people who hate Google glass", 
+      "id": "276634702500349_861325", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1492627890", 
+        "name": "Emmanuel Pacamalan"
+      }, 
+      "like_count": 1, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T06:25:45+0000", 
+      "message": "For people like us who have no issues with Google Glass, it's really easy to give the \"we're already being recorded anyways\" argument, but as far as Google eliminating this hate for glass? The only solution I can see for now is making a Google glass without the camera. ", 
+      "id": "276634702500349_861338", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "652144552", 
+        "name": "Gerry Hussein"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-23T19:38:39+0000", 
+      "message": "@ Bob Dana et al\n\nIf you are worried about Glass, you have not properly considered drones with cameras yet... a world where we have personal drones flitting about and yes, across your back yard too - and no the government will not be able to stop it happening for any meaningful period of time.\n\nSeriously, 'privacy' is dead, welcome to the new world,  where you assume that by default you are either being recorded all the time or are irrelevant in many ways to other people's lives (since so much that we now do of influence has a digital component) - a better world I believe since the main people to truly benefit from 'privacy' in the past were the rich and powerful who could afford to obfuscate their trails to dominance using front-men/women.\n\nThat is now increasingly becoming difficult for to do... In the new world, to be rich and powerful by definition, you have to leave massive trails of recorded interactions on the internet, thus are less private by definition - the new democracy.  This balance is not there yet... as a matter of fact there is still a massive imbalance hence the recent NSA security scandals and the fact that hackers and criminals can remain 'anonymous' - it is getting harder for them to cover their tracks...\n\nIt is a change that has been creeping on us a while... and it is the inevitable track of technological progress I happen and others believe too...  Google know this already.\n\nRead the recent interview of Kevin Kelly on Edge.org and/or on Wired for more on 'The Technium' and 'Why You Should Embrace Surveillance, Not Fight ' and this perspective spelled out much more eloquently then I have above.... \n\nHere are the links:\n\nThe Technium\nhttp://www.edge.org/conversation/the-technium\n\nWhy You Should Embrace Surveillance, Not Fight It\nhttp://www.wired.com/opinion/2014/03/going-tracked-heres-way-embrace-surveillance/", 
+      "id": "276634702500349_863545", 
+      "user_likes": false
+    }
+  ]
+}

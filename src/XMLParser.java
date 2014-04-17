@@ -1,4 +1,3 @@
-
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -11,6 +10,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeMap;
@@ -22,12 +22,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
 
-
 import edu.stanford.nlp.ling.Sentence;
 import edu.stanford.nlp.ling.TaggedWord;
 import edu.stanford.nlp.ling.HasWord;
 import edu.stanford.nlp.tagger.maxent.MaxentTagger;
-
 
 public class XMLParser {
 
@@ -36,15 +34,25 @@ public class XMLParser {
 	Map<String, Comment> allComments;
 	Map<Long, User> userMap;
 	public Set<Long> userIdList;
-	static List<Cluster> allClusterList = new ArrayList<Cluster>(); 
-	//List<List<HasWord>> sentences;
-	Map<String, Integer> Sentence_Weight = new HashMap<String, Integer>();
+	static List<Cluster> allClusterList = new ArrayList<Cluster>();
+	// List<List<HasWord>> sentences;
+	Map<String, Double> Sentence_Weight = new HashMap<String, Double>();
+	
+	Integer maxLikes;
+	Integer maxReplies;
+	Integer maxSubscribers;
+	Integer maxNamedEntity;
+	
+
+	static Integer lenghtOfBlog;
+	static Integer lenghtOfSummary;
+	static Integer numberOfComments;
 
 	public XMLParser() {
 		termMapGlobal = new HashMap<String, Term>();
 		allComments = new HashMap<String, Comment>();
 		userMap = new HashMap<Long, User>();
-		
+
 	}
 
 	private static void printHashMap(Map<String, Term> indexMap) {
@@ -85,13 +93,10 @@ public class XMLParser {
 			System.out.println(k + " - " + indexMap.get(k));
 		}
 	}
-	
-	
-	private static void printCluster()
-	{
-		for(int i=0;i<allClusterList.size();i++)
-		{
-			System.out.println("Cluster with ID " + i + " and Weight = " + allClusterList.get(i).weight );
+
+	private static void printCluster() {
+		for (int i = 0; i < allClusterList.size(); i++) {
+			System.out.println("Cluster with ID " + i + " and Weight = " + allClusterList.get(i).weight);
 			Iterator<String> reply = allClusterList.get(i).commentIdList.iterator();
 			while (reply.hasNext()) {
 				String j = reply.next();
@@ -105,7 +110,7 @@ public class XMLParser {
 	private void parseJSONFile() {
 		try {
 			// prints json file names
-		//	System.out.println("File: \t");
+			// System.out.println("File: \t");
 			JsonElement jsonElement = parser.parse(new FileReader("dataset/Blog 1/commentsDataset.json"));
 			JsonObject jsonObject = jsonElement.getAsJsonObject();
 			readJSONFile(jsonObject);
@@ -117,123 +122,164 @@ public class XMLParser {
 
 	private void readJSONFile(JsonObject jsonObject) {
 
-		//System.out.println("In readJSON " + " - ");
-		//JsonArray value = jsonObject.  get(Constants.COMMENTS).getAsJsonArray();
-	//	JsonObject jo = (JsonObject) value.get(0);
+		// System.out.println("In readJSON " + " - ");
+		// JsonArray value = jsonObject.
+		// get(Constants.COMMENTS).getAsJsonArray();
+		// JsonObject jo = (JsonObject) value.get(0);
 		JsonObject ja = (JsonObject) jsonObject.entrySet().iterator().next().getValue().getAsJsonObject().get(Constants.COMMENTS);
 		JsonArray allComments = ja.get(Constants.DATA).getAsJsonArray();
 
 		// This loop is to iterate over all the comments
 		Iterator<JsonElement> msg = allComments.iterator();
 		int i = 0;
+		maxSubscribers =0;
+		maxLikes =0;
+		maxReplies =0;
+		maxNamedEntity =0;
 		while (msg.hasNext()) {
 
-			//System.out.println("COMMENT " + i++ + " by ");
+			// System.out.println("COMMENT " + i++ + " by ");
 
 			decodeComment(msg.next());
 		}
-		
+
 		/*
 		 * 
 		 * 
-		 *  This is the place where you need to write your code 
-		 *  Call a method that calculates the IDF 
-		 *  then a method that clusters all the comments 
-		 *  
-		 *  After all this I would call the CalculateTermWeight that would consider the weights that you  assign to clusters
+		 * This is the place where you need to write your code Call a method
+		 * that calculates the IDF then a method that clusters all the comments
 		 * 
-		 * 
-		 * */
-		
-		
-	 
-		//printCommentMap();
-	
-	
+		 * After all this I would call the CalculateTermWeight that would
+		 * consider the weights that you assign to clusters
+		 */
+
+		// printCommentMap();
+
+	}
+
+	private int getUserAutority(Long userId) {
+
+		try {
+			User userObj = userMap.get(userId);
+
+			// Get the user authority from the file
+			if (userObj == null) {
+				JsonElement jsonElement = parser.parse(new FileReader("dataset/Blog 1/userSubscribers/" + userId + ".json"));
+				return jsonElement.getAsJsonObject().get("summary").getAsJsonObject().get("total_count").getAsInt() + 1;
+			} else {
+				return userObj.authority;
+			}
+
+			// int authority = userMap.get(userId);
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			// return 1;
+
+		}
+		return 1;
 	}
 
 	private void CalculateTermWeight() {
 		// TODO Auto-generated method stub
 		// Iterate over the terms map and calculate the weight
-		
+
 		Integer commentsCount = allComments.size();
-		Double idf ; 
-		
-		for (Map.Entry<String, Term> entry : termMapGlobal.entrySet()){
-			Term termObj =  entry.getValue();
+		numberOfComments = commentsCount;
+		Double idf;
+
+		for (Map.Entry<String, Term> entry : termMapGlobal.entrySet()) {
+			Term termObj = entry.getValue();
 			String term = entry.getKey();
-			Integer weight = 0 ;
-			Set<String> commentIdSet = termObj.commentIdList ; 
-			
-			//idf =  Math.log10((double)commentsCount / (double)commentIdSet.size());
-			
-			for(String commentId : commentIdSet){
-				
+			Integer weight = 0;
+			Set<String> commentIdSet = termObj.commentIdList;
+
+			// idf = Math.log10((double)commentsCount /
+			// (double)commentIdSet.size());
+
+			for (String commentId : commentIdSet) {
+
 				Comment commentObj = allComments.get(commentId);
-			
-				// get the author weight 
+
+				// get the author weight
 				// TODO : decide the factor for this weight i suggest 0.3
-				weight += commentObj.termsMap.get(term) * userMap.get(commentObj.authorId).authority;
-				
-				// The likes count for the comment 
-				weight +=commentObj.likesCount;
-				
-				// If the comment has replies 
-				if(commentObj.replies != null){
-					weight +=  commentObj.replies.size();
-				}else{//TODO: what would be the weight if the comment has no reply
-					
-				
-				}	
-				
-				// Count the number of the named entities in the comment 
-				weight += commentObj.countOfNamedEntites;
-					
-				
-				//System.out.println("cluster Id -->"+commentObj.clusterId);
-				if(commentObj.clusterId!=null){
-				//	System.out.println("i am here -------------------");
-					weight +=(int) ((commentObj.termsMap.get(term) * allClusterList.get(commentObj.clusterId).weight * 100 )+ 0.5);
+				weight += (commentObj.termsMap.get(term) * userMap.get(commentObj.authorId).authority) / (maxSubscribers * 10);
+
+				// The likes count for the comment
+				weight += commentObj.likesCount / (maxLikes * 5);
+
+				// If the comment has replies
+				if (commentObj.replies != null) { 
+					weight += commentObj.replies.size()/ (maxReplies * 5 );
+				} else {// TODO: what would be the weight if the comment has no
+						// reply
+
+				}
+
+				// Count the number of the named entities in the comment
+				weight += commentObj.countOfNamedEntites *3 / (maxNamedEntity *10);
+
+				// System.out.println("cluster Id -->"+commentObj.clusterId);
+				if (commentObj.clusterId != null) {
+					// System.out.println("i am here -------------------");
+					weight += (int) ((commentObj.termsMap.get(term) * allClusterList.get(commentObj.clusterId).weight * 100) + 0.5)/ 5;
 				}
 			}
 			termObj.weight = weight;
-			//System.out.println(term + "---->" + weight);
-			
-		  
+			// System.out.println(term + "---->" + weight);
+
 		}
-		
-		
-		//sortMap ();
+
+		// sortMap ();
+	}
+
+	private class TermComparator implements Comparator<String> {
+		@Override
+		public int compare(String arg0, String arg1) {
+			Double t1 = Sentence_Weight.get(arg0);
+			Double t2 = Sentence_Weight.get(arg1);
+			int i = t2.compareTo(t1);
+			return i == 0 ? 1 : i;
+		}
 	}
 	
-    private class TermComparator implements Comparator<String>{
+    private class TermComparator2 implements Comparator<String>{
 		@Override
 		public int compare(String arg0, String arg1) 
 		{
-			Integer t1 =  Sentence_Weight.get(arg0);
-			Integer t2 = Sentence_Weight.get(arg1);
-			int i = t2.compareTo(t1);
+			Term t1 =  termMapGlobal.get(arg0);
+			Term t2 = termMapGlobal.get(arg1);
+			int i = t2.weight.compareTo(t1.weight);
 			return i==0 ? 1:i;
 		}
 	}
 
-	
-public int sortMap (){
-	
-		int Threshold = 1000000000;
-	    TermComparator termComparator = new TermComparator();
-		TreeMap<String, Integer> sortedByValues = new TreeMap<String, Integer>(termComparator);
-		for (Map.Entry<String,Integer > entry : Sentence_Weight.entrySet()){
-			sortedByValues.put(entry.getKey(),entry.getValue());
+	public Double sortMap(int numOfSentences) {
+		for (Entry<String, Term> entry : termMapGlobal.entrySet()) {
+
+			System.out.println(entry.getKey() + " - " + entry.getValue().weight);
 		}
-	    int c=0;
-		//System.out.println("Sentences and their weights : ");
-		for (Map.Entry<String, Integer> entry : sortedByValues.entrySet()){
+		// termMapGlobal.get(words.get(j)).weight;
+		Double Threshold = 1000000000.0;
+		TermComparator termComparator = new TermComparator();
+		TreeMap<String, Double> sortedByValues = new TreeMap<String, Double>(termComparator);
+		for (Map.Entry<String, Double> entry : Sentence_Weight.entrySet()) {
+			sortedByValues.put(entry.getKey(), entry.getValue());
+		}
+		int c = 0;
+		// System.out.println("Sentences and their weights : ");
+		int sentenceThreshold = 8;
+		if (numOfSentences / 5 < 8) {
+			sentenceThreshold = numOfSentences / 5;
+		}
+		System.out.println("-----sentence threshold" + sentenceThreshold);
+		for (Map.Entry<String, Double> entry : sortedByValues.entrySet()) {
 			c++;
-			//System.out.println(entry.getKey() +" - "+entry.getValue());
-			if(c==11)
-				Threshold=entry.getValue();
+			System.out.println(entry.getKey() + " - " + entry.getValue());
+			if (c == sentenceThreshold)
+				Threshold = entry.getValue();
 		}
+		System.out.println("Thresold value---" + Threshold);
 		return Threshold;
 	}
 
@@ -244,7 +290,9 @@ public int sortMap (){
 		JsonObject commentJsonObject = comment.getAsJsonObject();
 		Comment commentObj = new Comment();
 		User userObj = new User();
-
+      
+	  //  maxSubscribers =0;
+	    
 		try {
 
 			// If it is not the FB user
@@ -259,11 +307,15 @@ public int sortMap (){
 
 			// Add the user to the global user Map
 			userObj.userId = commentObj.authorId;
-			userObj.authority = 5;
+			userObj.authority = getUserAutority(userObj.userId);
+			if(maxSubscribers < userObj.authority ){
+				maxSubscribers = userObj.authority;
+			}
+			// System.out.println("user authority-->"+userObj.authority);
 			userMap.put(commentObj.authorId, userObj);
 
 			// TODO: Remove this later
-		try {
+			try {
 				name = commentJsonObject.get(Constants.FROM).getAsJsonObject().get(Constants.NAME).getAsString();
 			} catch (Exception e) {
 				// autherId = -1;
@@ -279,18 +331,26 @@ public int sortMap (){
 
 			commentObj.likesCount = Integer.parseInt(commentJsonObject.get(Constants.LIKECOUNT).getAsString());
 			String message = commentJsonObject.get(Constants.MESSAGE).getAsString();
+			if(maxLikes < commentObj.likesCount){
+				maxLikes = commentObj.likesCount;
+				
+			}
 
-		//	System.out.print(name + " -----" + commentObj.authorId + " " + commentObj.likesCount + " " + commentObj.commentId);
+			// System.out.print(name + " -----" + commentObj.authorId + " " +
+			// commentObj.likesCount + " " + commentObj.commentId);
 
 			// commentObj.likesCount = likesCount;
 
 			Tokenizer.tokenize(message, termMapGlobal, commentObj);
 
-		   // Count the number of named entity in the comment 
+			// Count the number of named entity in the comment
 			commentObj.countOfNamedEntites = Tagger.countNamedEntity(message);
+			if(maxNamedEntity < commentObj.countOfNamedEntites ){
+				maxNamedEntity = commentObj.countOfNamedEntites;
+			}
 
 			allComments.put(commentObj.commentId, commentObj);
-			//System.out.println("term map---------------------");
+			// System.out.println("term map---------------------");
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -300,11 +360,15 @@ public int sortMap (){
 
 	private void readReplies(Comment commentObj) {
 		try {
-			JsonElement jsonElement = parser.parse(new FileReader("dataset/Blog 1/replies/replyFor-"+commentObj.commentId+".json"));
+			JsonElement jsonElement = parser.parse(new FileReader("dataset/Blog 1/replies/replyFor-" + commentObj.commentId + ".json"));
 			JsonArray replyArray = jsonElement.getAsJsonObject().get(Constants.DATA).getAsJsonArray();
 			if (replyArray != null) {
 				userIdList = new HashSet<Long>();
 				commentObj.replies = new ArrayList<Reply>();
+				if(maxReplies < replyArray.size()){
+					
+					maxReplies = replyArray.size();
+				}
 				Iterator<JsonElement> reply = replyArray.iterator();
 				while (reply.hasNext()) {
 					JsonElement j = reply.next();
@@ -317,7 +381,7 @@ public int sortMap (){
 			}
 
 		} catch (Exception ex) {
-			 ex.printStackTrace();
+			ex.printStackTrace();
 			commentObj.replies = null;
 
 		}
@@ -336,240 +400,286 @@ public int sortMap (){
 
 			// Add this reply object to comment object
 			commentObj.replies.add(replyObj);
-			
+
 			// TODO : Extract the other information about the replier
 			User userObj = new User();
 			userObj.userId = replyObj.authorId;
-			userObj.authority = 5;
-			
-			// Do not consider the commentor for authority calculation if the reply is given by the 
-			// author itself 
-			// + 
+			userObj.authority = getUserAutority(userObj.userId);
+			if(maxSubscribers < userObj.authority ){
+				maxSubscribers = userObj.authority;
+				
+			}
+
+			// Do not consider the commentor for authority calculation if the
+			// reply is given by the
+			// author itself
+			// +
 			// the consider only unique user in the reply
-			if(!userIdList.contains(userObj.userId) && commentObj.authorId!=userObj.userId){
+			if (!userIdList.contains(userObj.userId) && commentObj.authorId != userObj.userId) {
 				User userObj2 = userMap.get(commentObj.authorId);
 				userObj2.authority += userObj.authority;
 				userIdList.add(userObj.userId);
 			}
-			
-			if(userMap.get(userObj.userId)!=null){
+
+			if (userMap.get(userObj.userId) != null) {
 				userMap.put(userObj.userId, userObj);
 			}
-			
-			
+
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		
 
 	}
-	private void AddWeightToSentence() throws JsonIOException, JsonSyntaxException, IOException
-	{
+
+	private void AddWeightToSentence() throws JsonIOException, JsonSyntaxException, IOException {
 		JsonObject jsonObjectBlogLevel = parser.parse(new FileReader("dataset/Blog 1/blogDataset.json")).getAsJsonObject();
 		String body = jsonObjectBlogLevel.get("blog").getAsJsonObject().get("body").getAsString();
-		//System.out.println(body);
+		// System.out.println(body);
 		String[] sentences = body.split("\\.");
-		for(int i=0;i<sentences.length;i++)
-		{
-		//	System.out.println(sentences[i]);
+
+		lenghtOfSummary = 0;
+		lenghtOfBlog = 0;
+		lenghtOfBlog = body.split(" ").length;
+		for (int i = 0; i < sentences.length; i++) {
+			// System.out.println(sentences[i]);
 			List<String> words = Tokenizer.tokenize(sentences[i]);
-			//for(int j=0;j<words.size();j++)
-				//System.out.print(words.get(j) + " ");
-			//System.out.println();
-			int sum =0;
-			for(int j=0;j<words.size();j++)
-			{
-				if(termMapGlobal.containsKey(words.get(j)))
-					sum += 	termMapGlobal.get(words.get(j)).weight;
+			// for(int j=0;j<words.size();j++)
+			// System.out.print(words.get(j) + " ");
+			// System.out.println();
+			int sum = 0;
+			for (int j = 0; j < words.size(); j++) {
+				if (termMapGlobal.containsKey(words.get(j)))
+					sum += termMapGlobal.get(words.get(j)).weight;
 			}
-			Sentence_Weight.put(sentences[i], new Integer(sum/sentences[i].length()));
+			Sentence_Weight.put(sentences[i], new Double((double) sum ) );/// (double) sentences[i].length());
 		}
-		int Threshold  = sortMap();
+                int count1 = 0;
 		BufferedWriter writer = null;
-		
-	    writer = new BufferedWriter( new FileWriter("Summary"));
-	    for(int i=0;i<sentences.length;i++)
-	    {
-			//System.out.println(sentences[i] + "\n **** END ***** \n");
-	    	if(Sentence_Weight.get(sentences[i])>=Threshold)
-	    		writer.write(sentences[i]+".");
-	    }
-	
-	    writer.close();
-		
+		Double Threshold = sortMap(sentences.length);
+		writer = new BufferedWriter(new FileWriter("Summary"));
+		for (int i = 0; i < sentences.length; i++) {
+			// System.out.println(sentences[i] + "\n **** END ***** \n");
+			if (Sentence_Weight.get(sentences[i]) >= Threshold && count1<8) {
+                                count1++;
+				lenghtOfSummary += sentences[i].split(" ").length;
+				writer.write(sentences[i].trim() + "." + "\n\n");
+			}
+		}
+
+		writer.close();
+
 	}
-	private void CreateCluster()
-	{	
+
+	private void CreateCluster() {
 		/* Initialize first cluster */
 		Cluster c1 = new Cluster();
 		for (String k : allComments.keySet()) {
-			c1.vector =  getCommentVector(allComments.get(k));
+			c1.vector = getCommentVector(allComments.get(k));
 			c1.commentIdList = new HashSet<String>();
 			c1.commentIdList.add(allComments.get(k).commentId);
-			allComments.get(k).clusterId=0;
+			allComments.get(k).clusterId = 0;
 			break;
 		}
-		allClusterList.add(c1); 
+		allClusterList.add(c1);
 
-		// Set Threshold 
-		Double THRESHOLD = 0.045; 
-		/*More the CosTheta, closer the vectors, 
-		 Lower the Threshold, high likelihood of vectors to accomodate in a cluster,
-		 hence less will be the number of clusters formed */
+		// Set Threshold
+		Double THRESHOLD = 0.045;
+		/*
+		 * More the CosTheta, closer the vectors, Lower the Threshold, high
+		 * likelihood of vectors to accomodate in a cluster, hence less will be
+		 * the number of clusters formed
+		 */
 
-		int cluster_id=0;
+		int cluster_id = 0;
 
 		for (String k : allComments.keySet()) {
 			Comment comment = allComments.get(k);
 			Integer n = allClusterList.size();
 			Double Max_Value = 0.0;
 
-			for(int i=0; i<n; i++)
-			{
+			for (int i = 0; i < n; i++) {
 				/* Compare each comment with all cluster centroids */
-				Double CosTheta = compareCommentVectors((HashMap<String, Double>) allClusterList.get(i).vector,getCommentVector(comment));
-				if(CosTheta >= Max_Value) //To select closest centroid
+				Double CosTheta = compareCommentVectors((HashMap<String, Double>) allClusterList.get(i).vector, getCommentVector(comment));
+				if (CosTheta >= Max_Value) // To select closest centroid
 				{
 					Max_Value = CosTheta;
 					cluster_id = i;
 				}
 			}
-			/*If the distance between comment and cluster is greater than a THRESHOLD(i.e CosTheta >= Threshold),
-			it implies that the comment can be included within that cluster,
-			else make another cluster.
+			/*
+			 * If the distance between comment and cluster is greater than a
+			 * THRESHOLD(i.e CosTheta >= Threshold), it implies that the comment
+			 * can be included within that cluster, else make another cluster.
 			 */
-			if(Max_Value >= THRESHOLD)
-			{
-				comment.clusterId = cluster_id;	
+			if (Max_Value >= THRESHOLD) {
+				comment.clusterId = cluster_id;
 				allClusterList.get(cluster_id).commentIdList.add(comment.commentId);
 				/* Recalculate centroid in the below two lines. */
 				allClusterList.add(cluster_id, MeanCentroid(cluster_id));
-				allClusterList.remove(cluster_id+1);
-				allComments.put(comment.commentId,comment);
-				//System.out.println("Count "  + "Cluster ID : " + allComments.get(k).clusterId );//+ allClusterList.get(cluster_id).commentIdList);
-			}
-			else
-			{
+				allClusterList.remove(cluster_id + 1);
+				allComments.put(comment.commentId, comment);
+				// System.out.println("Count " + "Cluster ID : " +
+				// allComments.get(k).clusterId );//+
+				// allClusterList.get(cluster_id).commentIdList);
+			} else {
 				// form a new cluster
-				comment.clusterId=allClusterList.size();
+				comment.clusterId = allClusterList.size();
 				Cluster c = new Cluster();
 				c.vector = (getCommentVector(comment));
 				c.commentIdList = new HashSet<String>();
 				c.commentIdList.add(comment.commentId);
 				allClusterList.add(c);
-				allComments.put(comment.commentId,comment);
-				//System.out.println("Count new "  + "Cluster ID : " + allComments.get(k).clusterId );//+ allClusterList.get(cluster_id).commentIdList);
+				allComments.put(comment.commentId, comment);
+				// System.out.println("Count new " + "Cluster ID : " +
+				// allComments.get(k).clusterId );//+
+				// allClusterList.get(cluster_id).commentIdList);
 			}
 		}
 		AssignClusterWeight();
 		CalculateTermWeight();
 	}
-	private void AssignClusterWeight()
-	{
-		Double sum =0.0;
+
+	private void AssignClusterWeight() {
+		Double sum = 0.0;
 		int div = 0;
 
-		for(int i=0;i<allClusterList.size();i++)
-		{
+		for (int i = 0; i < allClusterList.size(); i++) {
 			Cluster c = allClusterList.get(i);
 			Set<String> S = new HashSet<String>(c.commentIdList);
 			Iterator<String> id = S.iterator();
 			while (id.hasNext()) {
 				String commentId = id.next();
 				int freq = allComments.get(commentId).termsMap.size();
-				double sim = compareCommentVectors(getCommentVector(allComments.get(commentId)), (HashMap<String, Double>)c.vector);
-				sum += (double)freq*sim;
+				double sim = compareCommentVectors(getCommentVector(allComments.get(commentId)), (HashMap<String, Double>) c.vector);
+				sum += (double) freq * sim;
 			}
 
-			for( String k : allComments.keySet())
-			{
+			for (String k : allComments.keySet()) {
 				div += allComments.get(k).termsMap.size();
 			}
-			c.weight = (sum/(double)div);
+			c.weight = (sum / (double) div);
 		}
 
 	}
-	private double compareCommentVectors( HashMap<String,Double> m1, HashMap<String,Double> m2)
-	{
+
+	private double compareCommentVectors(HashMap<String, Double> m1, HashMap<String, Double> m2) {
 		Double modA = VectorModulus(m1);
 		Double modB = VectorModulus(m2);
-		Double  sum = 0.0,v1,v2;
-		for(String k : m1.keySet())
-		{
-			if(m2.containsKey(k))
-			{
+		Double sum = 0.0, v1, v2;
+		for (String k : m1.keySet()) {
+			if (m2.containsKey(k)) {
 				v1 = m1.get(k);
 				v2 = m2.get(k);
-				sum += (v1*v2);	
+				sum += (v1 * v2);
 			}
 		}
-		return (sum / (modA * modB)); //(A.B / (||A||* ||B||))
+		return (sum / (modA * modB)); // (A.B / (||A||* ||B||))
 
 	}
-	private double VectorModulus( HashMap<String,Double> v)
-	{
+
+	private double VectorModulus(HashMap<String, Double> v) {
 		Double sum = 0.0;
-		for(String k : v.keySet())
-		{
-			sum += v.get(k)*v.get(k);
+		for (String k : v.keySet()) {
+			sum += v.get(k) * v.get(k);
 		}
-		return Math.sqrt(sum);	
+		return Math.sqrt(sum);
 	}
-	private HashMap<String,Double> getCommentVector(Comment commentObj)
-	{
-		Map<String,Double> VectorMap = new HashMap<String,Double>();
+
+	private HashMap<String, Double> getCommentVector(Comment commentObj) {
+		Map<String, Double> VectorMap = new HashMap<String, Double>();
 		for (String k : commentObj.termsMap.keySet()) {
 			Integer tf = commentObj.termsMap.get(k);
 			Double idf = Math.log(allComments.size() / termMapGlobal.get(k).commentIdList.size());
-			VectorMap.put(k, (double)tf*idf);
+			VectorMap.put(k, (double) tf * idf);
 		}
 		return (HashMap<String, Double>) VectorMap;
 	}
-	private Cluster MeanCentroid(int Id)
-	{
-		Map<String,Double> mean = new HashMap<String,Double>();
-		Set<String> IDs =new HashSet<String>(allClusterList.get(Id).commentIdList);
+
+	private Cluster MeanCentroid(int Id) {
+		Map<String, Double> mean = new HashMap<String, Double>();
+		Set<String> IDs = new HashSet<String>(allClusterList.get(Id).commentIdList);
 
 		/* Iterate on all comments within the cluster */
 		Iterator<String> id = IDs.iterator();
 		while (id.hasNext()) {
 			String commentId = id.next();
-			Map<String,Double> vec = getCommentVector(allComments.get(commentId));
-			for(String j : vec.keySet())
-			{
-				if(mean.containsKey(j))
-				{
+			Map<String, Double> vec = getCommentVector(allComments.get(commentId));
+			for (String j : vec.keySet()) {
+				if (mean.containsKey(j)) {
 					Double val = mean.get(j) + vec.get(j);
-					mean.put(j,val);
-				}
-				else
+					mean.put(j, val);
+				} else
 					mean.put(j, vec.get(j));
 			}
 		}
 		int N = IDs.size();
-		Double val=0.0;
-		for(String k: mean.keySet())
-		{	
-			val=mean.get(k)/(double)N;
-			mean.put(k,val);
+		Double val = 0.0;
+		for (String k : mean.keySet()) {
+			val = mean.get(k) / (double) N;
+			mean.put(k, val);
 		}
 		Cluster c = new Cluster();
-		c.vector=mean;
+		c.vector = mean;
 		c.commentIdList = allClusterList.get(Id).commentIdList;
 		return c;
+	}
+
+	private void writeWordsToFile() {
+		try {
+			//System.out.println("i am here aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+			BufferedWriter writer = new BufferedWriter(new FileWriter("WordWeight"));
+			TermComparator2 termComparator = new TermComparator2();
+				TreeMap<String, Term> sortedByValues = new TreeMap<String, Term>(termComparator);
+				for (Map.Entry<String, Term> entry : termMapGlobal.entrySet()){
+					sortedByValues.put(entry.getKey(),entry.getValue());
+				}
+			   
+				System.out.println("Terms and their weights : ");
+				for (Map.Entry<String, Term> entry : sortedByValues.entrySet()){
+					writer.write(entry.getKey() +" - "+entry.getValue().weight+"\n");
+					
+				}
+			
+			/*System.out.println("---------->>"+sortedByValues.size());
+			for (Map.Entry<String, Integer> entry : sortedByValues.entrySet()) {
+				//sortedByValues.put(entry.getKey(), entry.getValue());
+				writer.write(entry.getKey() + " - " + entry.getValue()+"\n");
+			}
+			*/
+			
+			
+			writer.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}
+
 	}
 
 	public static void main(String[] args) throws JsonIOException, JsonSyntaxException, IOException {
 		XMLParser xmlParser = new XMLParser();
 		xmlParser.parseJSONFile();
-	//	System.out.println("global map---------------------");
-		//printHashMap(xmlParser.termMapGlobal);
-		//System.out.println("Total no of words in all comments: " + xmlParser.termMapGlobal.size());
-		//System.out.println("Total no of all comments: " + xmlParser.allComments.size());
+		// System.out.println("global map---------------------");
+		// printHashMap(xmlParser.termMapGlobal);
+		// System.out.println("Total no of words in all comments: " +
+		// xmlParser.termMapGlobal.size());
+		// System.out.println("Total no of all comments: " +
+		// xmlParser.allComments.size());
 		xmlParser.CreateCluster();
 		xmlParser.AddWeightToSentence();
+
+		// Write meta data of the Blog :
+		BufferedWriter writer = new BufferedWriter(new FileWriter("MetaData"));
+
+		writer.write("Length of Blog - " + lenghtOfBlog + "\n");
+		writer.write("Length of Summary - " + lenghtOfSummary + "\n");
+		writer.write("Number Of Comments - " + numberOfComments + "\n");
+
+		writer.close();
 		
-		//printCluster();
+		xmlParser.writeWordsToFile();
+
+		// printCluster();
 	}
 
 }

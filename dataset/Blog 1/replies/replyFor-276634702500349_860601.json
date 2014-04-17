@@ -1,0 +1,469 @@
+{
+  "paging": {
+    "cursors": {
+      "after": "MzM=", 
+      "before": "MQ=="
+    }
+  }, 
+  "data": [
+    {
+      "from": {
+        "id": "1455175436", 
+        "name": "Jeremy Wagner-Kaiser"
+      }, 
+      "like_count": 16, 
+      "can_remove": false, 
+      "created_time": "2014-03-21T19:03:51+0000", 
+      "message": "Really? You can tell if someone behind you or across the street is recording you with a phone? How about one of the many time digital video cameras cheaply available? How about the cameras you find everywhere in public, supposedly for security? What about the traffic cameras that are all over on major roads and high ways?\n\nWhen was the last time anyone asked your permission for any of those?", 
+      "id": "276634702500349_860717", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "661073535", 
+        "name": "Ivan Phan"
+      }, 
+      "like_count": 4, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T01:01:06+0000", 
+      "message": "So, Bob, in your mind and in your country, people are guilty and have to prove their innocence ? interesting. i thought, it was the other way around. it is, in mine at least... :)", 
+      "id": "276634702500349_860969", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1252441438", 
+        "name": "Bob Dana"
+      }, 
+      "like_count": 8, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T03:52:00+0000", 
+      "message": "Jeremy Wagner-Kaiser  I'm sure it's possible to invent scenarios where a phone can be used for secretly recording people against their wishes, but Glass is DESIGNED for it.  I think the distinction is pretty clear.  As for security and traffic cameras, isn't that just a totally different issue.  Security cameras don't walk up to me and attempt to have a conversation with me.  To me their existence has no bearing whatsoever on how Google Glass ought to be designed.", 
+      "id": "276634702500349_861164", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1455175436", 
+        "name": "Jeremy Wagner-Kaiser"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T03:56:06+0000", 
+      "message": "Bob Dana The point is that you're recorded six ways to Sunday every time you're in public and that Google Glass is nothing new in that respect. The ACLU has an app for secretly recording audio, among other people.\n\nGoogle Glass isn't capable of walking up to you and holding a conversation either.\n\nAll I see is that you're suddenly freaking out over the status quo when you were apparently fine with it pre-Glass. So why the sudden change?", 
+      "id": "276634702500349_861169", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1252441438", 
+        "name": "Bob Dana"
+      }, 
+      "message_tags": [
+        {
+          "length": 9, 
+          "offset": 0, 
+          "type": "user", 
+          "id": "661073535", 
+          "name": "Ivan Phan"
+        }
+      ], 
+      "like_count": 1, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T04:03:14+0000", 
+      "message": "Ivan Phan Are you saying that I'm at fault for presuming that Google Glass wearers are guilty of secretly recording me when we are talking?  Hah, that's a good one.  First, I'm not faulting Google Glass wearers, I'm faulting the design of the product.  Second, why does someone actually need to wear Google Glass when they are talking to me?  So they can read their email or catch up on the news?  That's not AS offensive as recording me, but it's still offensive.\n\nConsider this analogy:  If someone approaches me brandishing a gun, and I run away, have I presumed them guilty?  Hell yeah, because no normal, well adjusted person would behave that way.  An extreme example to convey the point, but I think that no normal, well adjusted person should wish to point their front-facing, LED-less camera in my face either.", 
+      "id": "276634702500349_861178", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1455175436", 
+        "name": "Jeremy Wagner-Kaiser"
+      }, 
+      "like_count": 1, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T04:35:08+0000", 
+      "message": "Bob Dana Well, you're being quite egotistical when you assume that you're interesting enough to record specifically, but that's neither here nor there. I don't think the design of the product is your actual issue. Even if you had a big bright red LED and a 100-decibel \"THIS PERSON IS NOW RECORDING!\" announcement, I think you wouldn't be happy.\n\nI think your real objection is that you feel like you're losing control.\n\nOf course, if your objection is truly what you've stated, then your problem is already solved. You're already equipped to record surreptitiously! Voila! You can now be happy and accept!", 
+      "id": "276634702500349_861218", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1252441438", 
+        "name": "Bob Dana"
+      }, 
+      "message_tags": [
+        {
+          "length": 20, 
+          "offset": 0, 
+          "type": "user", 
+          "id": "1455175436", 
+          "name": "Jeremy Wagner-Kaiser"
+        }
+      ], 
+      "like_count": 3, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T14:34:23+0000", 
+      "message": "Jeremy Wagner-Kaiser  There's no point in debating this like human beings if you (i) make personal criticisms of me with the excuse that it's \"neither here nor there\", and (ii) you counter my points by simply denying that I actually believe what I'm saying.  I suspect you've got more game than that, so bring it.\n\nI really do have a problem with the design of Glass, not the other issues that you've made up from whole cloth.  Please don't attribute ideas to me that I didn't say; that's a reflection on you, not me.  And as for your last comment, that my problem \"is already solved...\", that just doesn't make any sense at all; it's not even consistent with the ideas you erroneously attribute to me.  \n\nFinally, you keep bringing up the security cameras analogy.  I'm not arguing that there is an issue with security cameras recording us.  But to me that's an entirely separate issue.  Or didn't your mom teach you that two wrongs don't make a right? ", 
+      "id": "276634702500349_861732", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "535807996", 
+        "name": "Prabhakar Kotla"
+      }, 
+      "like_count": 1, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T17:06:57+0000", 
+      "message": "Bob Dana  Its not point in discussing with fanboys because you cannot have a rational discussion. ", 
+      "id": "276634702500349_861852", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1455175436", 
+        "name": "Jeremy Wagner-Kaiser"
+      }, 
+      "like_count": 1, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T17:08:07+0000", 
+      "message": "Bob Dana You said that your problem is that others can record surreptitiously and you cannot. I have informed you that you can. Ergo, your problem is solved.\n\nSecurity cameras are not a separate issue. They are a different facet of the same issue. I am asking for consistency from you.", 
+      "id": "276634702500349_861853", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "535807996", 
+        "name": "Prabhakar Kotla"
+      }, 
+      "like_count": 3, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T17:10:04+0000", 
+      "message": "Jeremy Wagner-Kaiser Yes you can record anything from anywhere from modern phones but with Glass its much more easy. You may be fine with random folks recording your family members and posting them on internet but many of us are not. ", 
+      "id": "276634702500349_861854", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1455175436", 
+        "name": "Jeremy Wagner-Kaiser"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T17:17:51+0000", 
+      "message": "Prabhakar Kotla Given that traffic cameras routinely stream their data to the internet, the odds are extremely good that my family members already have been recorded and posted to the internet. Plus, I expect them to take care of themselves, and that's worked out well so far.\n\nIt's not just about phones, either. If you want to, you can go buy all the equipment you need to surreptitiously record for less than the cost of a new S4 (or is it S5 now?). There is no shortage of people selling the stuff. Hell, I know a couple stores that sell such equipment.\n\nGlass didn't introduce anything new here. In fact, it's one of the shittiest ways I can think of to surreptitiously record you - it's way too expensive, the battery life is poor, it's far too obvious, etc.\n\nAll the capabilities you worry about existed years ago in forms just as easy - and easier - than Glass makes it. So why have you suddenly started worrying now?", 
+      "id": "276634702500349_861860", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1252441438", 
+        "name": "Bob Dana"
+      }, 
+      "message_tags": [
+        {
+          "length": 20, 
+          "offset": 0, 
+          "type": "user", 
+          "id": "1455175436", 
+          "name": "Jeremy Wagner-Kaiser"
+        }
+      ], 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T17:38:45+0000", 
+      "message": "Jeremy Wagner-Kaiser Ok, Jeremy, I'll give you that one, haha.  \n\nSince we're at this level of specificity, I'll modify my POV to say that MOST security cameras and Google Glass are not comparable.  Most security cameras are looking for specific things (generally criminal activity).  There's a legitimate reason for them, although no doubt they are subject to abuse.\n\nSo if I go to a casino and see a security camera, I'm not bothered.  They have their reasons, I know what I'm signing up for, and if I'm not happy I don't have to walk in there in the first place.   But if I go to a friend's house for dinner, and learn that he has recorded the dinner conversation without my advance knowledge or permission, I'm not going back there.   If he asks my permission, he'd better have a good reason.  That's the way I feel about Glass.\n\nBTW, is there not a bit of irony in the fact that a guy who works for Mantech has the perspective that \"you're recorded six ways to Sunday every time you're in public and that Google Glass is nothing new in that respect\"???   \n\nBut in fact that's my point -- when I'm talking to someone who has approached me wearing Glass, I don't believe that I'm \"in public\".  I have the right to control who gets up in my grill.  It's called \"personal space\", after all.", 
+      "id": "276634702500349_861883", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1455175436", 
+        "name": "Jeremy Wagner-Kaiser"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T17:43:22+0000", 
+      "message": "Bob Dana When your personal space is in public, you are still in public.\n\nAs for so-called security cameras, what do you really know about them other than that other people call them \"security cameras\"? How about if we rebrand Glass as the \"Personal Security Camera\"?", 
+      "id": "276634702500349_861888", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1252441438", 
+        "name": "Bob Dana"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T17:57:13+0000", 
+      "message": "Jeremy Wagner-Kaiser  As I said, security cameras can be abused, but I'm not so cynical (yes, I know you'll say \"naive\") as to believe they always will be abused.  It goes to intent.  Security cameras exist to catch crooks.  In this whole conversation you've never offered a reason why a Glass wearer needs to secretly record his/her conversation with me. ", 
+      "id": "276634702500349_861898", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "100001572901941", 
+        "name": "Kc Heller"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T19:10:26+0000", 
+      "message": "get a life......", 
+      "id": "276634702500349_861952", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "100004029977592", 
+        "name": "Xformer Tab"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T19:31:59+0000", 
+      "message": "Ivan Phan Hmmm, then why does your cunttree record every call and text that you and your people make?", 
+      "id": "276634702500349_861978", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "582506174", 
+        "name": "Richard Smart"
+      }, 
+      "like_count": 3, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T19:34:23+0000", 
+      "message": "Personally I don't see a problem with people collecting and processing the photons that have ventured into their own 'personal space'. If they're being reflected from a public location in space and time then I personally consider it their right to do so and not my place to object. There are of course existing laws prohibiting what they might be doing in their own private space (eg plotting to kill me is not allowed etc) but generally I'm happy that those laws are already in place to protect me (more or less). If you or I as 'photon reflectors' don't like that, the solution most commonly adopted is to go into our private space (which I believe everyone should have) and stop scattering photons unimpeded in other people's direction. I do understand why you're objecting and don't consider it in any way a strange opinion to take but my position is that if we're ever going to get peace on this issue we need a definitive yet reasonably simplistic rule to decide appropriateness. I believe trying to agree upon regions of space and time as either public or private is the way forward. I obviously haven't conceived those principles perfectly but those would be the lines I would seek to follow to get closer to something we can agree on. Re 'secretly' recording, I'd like us to get to the point where we assume we are recording one another as much as we assume one another will neurally record (ie remember) the conversation we had. I just look at it as a device for enhancing the wearers memory and hope that eventually, once we've readjusted to this 'different norm', instead of feeling a bit 'creepy', which to some extent I agree it does right now, it makes me feel quite pleased that someone considered a conversation with me worthy of capturing in this way.", 
+      "id": "276634702500349_861980", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "100000276648728", 
+        "name": "Brandon Isaacs"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T19:34:56+0000", 
+      "message": "Bob Dana I just wanna say your logic seems rather skewed to me Bob. It's as if you're assuming that people will be wasting their battery and time recording some random conversation with you. I'd also like to say that the social acceptability of these kinds of immersive things will be increasing exponentially in the next decade. It's gonna be something we all have to cope with. And as far as a simple alert for those possibly being recorded (an led indicator,) that's obviously something that will be added seeing as the product is in very early stages. And I can see maybe that, since you appear to be a ranking member of the job world with potentially important information in that brain of yours, you'd be slightly more concerned than most about privacy..just an assumption..but on that note this whole debate and most like it can be summarized into an adjustment in personal responsibility. If glass users would be respectful of others privacy, and other would be respectful of those using glass, then there's no problems. But in that you can see that no easy solution can or will be found. And I feel to many people are focusing on the negative aspects instead of the potential for greatness in this idea. Maybe there's a reason they left the light off. One practical thing I could think of for this would be in the operation room. Say an expert surgeon is performing a complicated and difficult procedure, and wants to record it for later review and maybe give it to a medical school for teaching purposes, or maybe he himself is a professor. Something like that has never been so available, and easy to use. Maybe that blinking light would be highly distracting in a situation like that where the utmost focus is a paramount importance. Literally life or death. Just my opinions and views..food for thought.", 
+      "id": "276634702500349_861981", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "100000276648728", 
+        "name": "Brandon Isaacs"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T19:39:26+0000", 
+      "message": "Richard Smart Simply fantastic. A joy to read and I completely agree. Respect to you, good sir. ", 
+      "id": "276634702500349_861991", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1252441438", 
+        "name": "Bob Dana"
+      }, 
+      "message_tags": [
+        {
+          "length": 14, 
+          "offset": 0, 
+          "type": "user", 
+          "id": "100000276648728", 
+          "name": "Brandon Isaacs"
+        }
+      ], 
+      "like_count": 1, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T19:57:27+0000", 
+      "message": "Brandon Isaacs we are perfectly agreed\u2026all I want is that LED.", 
+      "id": "276634702500349_862004", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1252441438", 
+        "name": "Bob Dana"
+      }, 
+      "message_tags": [
+        {
+          "length": 13, 
+          "offset": 0, 
+          "type": "user", 
+          "id": "582506174", 
+          "name": "Richard Smart"
+        }
+      ], 
+      "like_count": 2, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T20:10:53+0000", 
+      "message": "Richard Smart you are not wrong, but the premise is not that I wander into the personal space of a Glass wearer, but that he wanders into mine.  Trust me, I will not be approaching anyone who wears Glass in its current incarnation.\n\nWhat if, for example, I'm having a conversation with my wife at a cocktail party and a stranger walks up to me wearing Glass.  Am I going to keep talking about how the host should have served Veuve Cliquot instead of Korbell?  \n\nInstead of talking about adjusting to different norms as if they are totally out of our control (a scary thought), why don't you just tell me exactly why you need to secretly record my conversation?  What freedom of yours am I taking away by asking you to add an LED to your device?", 
+      "id": "276634702500349_862018", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "100000276648728", 
+        "name": "Brandon Isaacs"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T20:11:21+0000", 
+      "message": "Bob Dana I'm pretty sure they'll add one, or some kind of indicator. It's pretty much been the standard since recording equipment has existed. If however, they don't for some reason..I'm sure someone will develop an android app \"glass alert\" or something along those lines. If it can be done, it will be done. lol", 
+      "id": "276634702500349_862020", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1252441438", 
+        "name": "Bob Dana"
+      }, 
+      "message_tags": [
+        {
+          "length": 14, 
+          "offset": 0, 
+          "type": "user", 
+          "id": "100000276648728", 
+          "name": "Brandon Isaacs"
+        }
+      ], 
+      "like_count": 3, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T20:14:16+0000", 
+      "message": "Brandon Isaacs  \u2026but let me add that about 3 months ago I sat next to a Google Glass product manager on a plane, and I asked him about the LED, and he answered \"we considered that but rejected it.\"  Same answer with a camera-less version and with a physical lens cap.  Google knows exactly what they are doing.  They make money when people record more video; they aren't considering the etiquette and will not unless we refuse to buy their LED-less product.", 
+      "id": "276634702500349_862021", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "100000276648728", 
+        "name": "Brandon Isaacs"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T20:28:14+0000", 
+      "message": "Bob Dana Maybe such etiquette should be considered a thing of the past then. For instance, if you discussing beverage preferences with you wife and your displeasure at your hosts ineptitude I see no reason you wouldn't want that conversation recorded, other than keeping your views from said host. Maybe it would be better to have simply had that conversation (in the politest way possible) directly with the host themselves. Consider the benefits it may have on our posterity. Imagine being able to be nearly fully immersed in times long past. What if glass had existed during world war II? What more could we learn if we could have such an in depth view of the past? Just thing to consider that may help ease your mind of this issue. I'm sure that Google has no Ill-will at heart when it come to glass and from whatever stand-point, they are making the decisions they make for a reason, even if we don't know what that reason is. I have faith that progress will prevail in one way or another. I see no harm in something that couldn't really set us back at all. So some of us will sacrifice a little privacy here and there for benefits we might not even be able to imagine now and as we all know, it's still in its early stages. Plus, like I said before..if there's any way for a phone to detect glass, someone will most certainly make an app for that, then I think your worries would be solved!", 
+      "id": "276634702500349_862029", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "582506174", 
+        "name": "Richard Smart"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T20:31:45+0000", 
+      "message": "Bob Dana Why wouldn't you keep talking about that? If you believe it and consider it worthy of note why should be be ashamed of that? The google glass wearer could listen and remember as well as he could record, in either case he could go and tell on you to the host and the host could either decide to believe him/her or not. In this case there would be different levels of evidence but ultimately both reflect the truth and in either case the host could also choose to then confront you about it or not. When confronted you could then make the decision to explain why you thought Korbell would have been a better choice or outright deny it (ie lie). My hope would be that you would explain why you believed Korbell would have been a better choice, the host would then learn something new and be grateful or better appreciate the incredible subtleties behind the process of in champagne selection. If instead the host decides to bear a grudge against you for such a trivial difference of opinion you might find your life enriched by not being invited to his/her cocktail parties in future. And no doubt suffer for not having reasonable, knowledgeable people at his cocktail parties to enjoy and learn from.\n\nWhat I find most interesting in this case however is that the existence of google glass has actually made the third party's job of convincing the host you said you \"hated his guts and thought he/she was an arrogant tosspot\" MUCH MORE DIFFICULT than without. Which, having been to a few cocktail parties in my time, is a really good thing!", 
+      "id": "276634702500349_862031", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "705898713", 
+        "name": "Viktor Doundakov"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T22:36:19+0000", 
+      "message": "Brandon Isaacs  I should consider my views a \"thing of the past\" since I don't accept you video recording me without my permission?\nI would politely ask you to take your glass off if you are near me, but there are others who are not so patient with what they consider a blatant disrespect.", 
+      "id": "276634702500349_862091", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1252441438", 
+        "name": "Bob Dana"
+      }, 
+      "like_count": 3, 
+      "can_remove": false, 
+      "created_time": "2014-03-22T22:56:26+0000", 
+      "message": "I appreciate your perspectives, but I respectfully disagree.  It's fascinating to consider a world where everyone says just what they believe, and no one takes or means offense, but it's not the world I live in.   I say things all the time that I regret later, and I'm very glad no one has surreptitiously recorded me on such occasions.  \n\nHere's an exercise that might help: if Glass existed in two versions, with an LED that is lit when recording and without, and the two versions were otherwise the same in every respect (including price), which would you prefer to wear and why?  Which would you prefer others to wear?\n\nI would prefer to wear the LED version because I believe that unless it's already obvious, I have a moral duty to inform my companions if I'm recording them.  I feel the same way about phone calls (and the courts generally agree, btw).  One exception would be if I were a police officer or a firefighter where the need is clear.", 
+      "id": "276634702500349_862099", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "100000276648728", 
+        "name": "Brandon Isaacs"
+      }, 
+      "like_count": 1, 
+      "can_remove": false, 
+      "created_time": "2014-03-23T11:06:29+0000", 
+      "message": "Viktor Doundakov and Bob Dana, Vik first. Viktor, respectfully I would say that yes you should disregard such frail worries because they serve you no purpose. And that to percieve being recorded as blatant disrespect would indicate to me that the individual with those views likely has some minor mental imbalances. To feel disrespected without being physically violated or even spoken to is ridiculous, if no one meant to disrespect you intentionally then you should have no reason to feel disrespected. \n\nBob! Your perspectives are in no way unjust.  I personally see no real reason for glass to  NOT release an LED alert version. But mentioning courts is a terrible idea. It's pretty common knowledge that the judicial system fails miserably on a regular basis. \n     But let me ask you this Bob say in an incredible circumstance, at one of those parties you mentioned, you notice someone wearing glass and respectfully ask they take it off, or leave you immediate vicinity. However, this man pulls you aside and officially identifies himself and an undercover FBI agent participating in an important investigation on a member of the party, therefore was gathering necessary data on said person of interest. Would you still insist this behavior was unacceptable? And what if it were in lesser circumstances, say a social psychology professor is out and about gathering practical social data for a research paper? What if he did, and did not ask your permission in separate imaginative circumstances. Just out of curiosity. (Obviously in all circumstances mentioned, glass lacks any notification of recording.)", 
+      "id": "276634702500349_862980", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1252441438", 
+        "name": "Bob Dana"
+      }, 
+      "message_tags": [
+        {
+          "length": 14, 
+          "offset": 0, 
+          "type": "user", 
+          "id": "100000276648728", 
+          "name": "Brandon Isaacs"
+        }
+      ], 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-23T13:57:48+0000", 
+      "message": "Brandon Isaacs Brandon, good questions.  The FBI agent case in not realistic, because if he needed to secretly record video he would not put the camera on his face.  He would use any of the spy cams already available to him.  I would not object to this, because I would (perhaps naively) trust that his use of the technology was pre-approved, consistent with the law, and generally governed by the will of our democratically elected government.  As Winston Churchill said, \"democracy is the worst form of government except for every other.\"\n\nThe professor example is much more interesting, and would have to depend on some additional facts, but I'm generally not opposed to secret video recording if it's for a very good reason (and scientific research would often qualify, IMO).  It would not matter to me whether she asked my permission before or after the recording, just before she used it.  I would expect her to protect my privacy to the extent possible consistent with her scientific objectives, and to destroy the recording when no longer useful to her. \n\nAs I've said several times in this (now overly long) chain, it all boils down to intent.  I'm fairly liberal about interpreting intent, however \"just let me secretly record you and I'll determine later what to do with it\" definitely does not cut it for me.", 
+      "id": "276634702500349_863185", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "100000276648728", 
+        "name": "Brandon Isaacs"
+      }, 
+      "like_count": 1, 
+      "can_remove": false, 
+      "created_time": "2014-03-23T18:59:54+0000", 
+      "message": "Bob Dana Well put, I appreciate that it's not all black and white with you! For many it is. And yes indeed this whole post and subsequent comments has gone on far too long, but at least we've had quite the conversation, and I for one definitely took a little perspective from it. Hopefully other people will read out conversation in the future and find it in some way helpful. I think the general agreement at this point is that glass has some great potential, but most people will want a recording indicator of some sort.\n\nGood conversation anyway. The kind I imagine they pay people to sit around and have in R&D. Hell who knows maybe someone from google will happen upon this and take something from it. Nice talking Bob! Best wishes. ", 
+      "id": "276634702500349_863503", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1015068584", 
+        "name": "Steve Clingan"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-24T15:13:58+0000", 
+      "message": "Bob Dana Security cameras are NOT looking for crimes to record. They record EVERYTHING. Its up to the human element to find the criminals once they have been recorded. Not sure why your friends need your permission if your in their house. ", 
+      "id": "276634702500349_864509", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "1463899117", 
+        "name": "Dan Feeney"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-24T19:11:51+0000", 
+      "message": "Brandon Isaacs I think it's bold and somewhat misguided to think that a device like Glass should do away with our ability to have private conversations such as Bob's example of drink choice, etc.  In what way would it help the world to have everyone's personal opinions recorded and ready for viewing?  You assume that a more open and honest world is the next step in evolution, and where transparency in government and availability of information is important and a necessary addition to a better world, I don't assume that knowing my neighbor's true feelings on my wardrobe or drink selection is in any way necessary or beneficial.  At this point it seems that Google created a device and now the public is faced with deciding its benefit.  I think you gave the example of a Surgeon using Glass.  There are many professional uses that I can see as fantastic uses, but I would be in full acceptance of a public ban on wearing Glass because of the implications it has on personal privacy.  Yes, phones and other recording devices are readily available and present in public, but a phone has many other necessary uses and is more obvious when being used for other means.  I have yet to figure out a single good (non-professional or specialized) reason as to why Glass is at all useful except in cases where you can't use your hands, except most of those hands-free moments are in situations where you shouldn't be diverting your attention to your email, etc.", 
+      "id": "276634702500349_864753", 
+      "user_likes": false
+    }, 
+    {
+      "from": {
+        "id": "100000276648728", 
+        "name": "Brandon Isaacs"
+      }, 
+      "like_count": 0, 
+      "can_remove": false, 
+      "created_time": "2014-03-24T23:59:36+0000", 
+      "message": "Dan Feeney You seem to be stuck in a rather narrow tunnel of perspective. Firstly I'm not taking a particular stand necessarily about anything. Mostly I try to simply put out ideas that get people thinking in some way and it seems I've accomplished that goal many times here. Anyway in what way would having all peoples opinions available for viewing make a better world? Well i can't really answer that, but I can ask you in what way it wouldn't make a better world. No one can say for sure, but the potential benefits outweigh the potential damages from my stand-point. Why..because all information, however insignificant is valuable, many times in ways were aren't even aware of. You can't say for sure the effects of knowing things you don't now know would be on you, because you don't know what you don't you, you can only speculate. So essentially it's the age old question of \"Is it better to know, or not to know?\" \n\nFrom my perspective, the potential here is exciting. There's a great many things that could come of glass, many of which we cannot anticipate yet. Even things that appear to be bad now, may prove beneficial in the future. I just thinks it's important for people to look at situations like this from all angels and really putting serious critical thought into before jumping to conclusions about the entire thing. Wanting to ban something like this because of a fear of privacy related more or less to one specific function or lack thereof is just silly if you consider how much more there really is to it, and the possibilities for the futures ESPECIALLY since it's in the early stages of its existence.  ", 
+      "id": "276634702500349_864997", 
+      "user_likes": false
+    }
+  ]
+}
